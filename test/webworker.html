@@ -5,7 +5,6 @@
         <meta charset="utf-8"/>
         <title>风场测试</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no minimal-ui">        
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
         <style>
             html,body{
                 height: 100%;
@@ -17,11 +16,26 @@
     </head>
     <body>
         <div id="mapid"></div>
-        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-        <script src="js/L.CanvasLayer.js"></script>
-        <script src="js/j.js"></script>
-        <script src="../lib/weatherwind.js"></script>
-        <script src="js/index.js"></script>
+        <script>
+        function test() {
+            self.onmessage = function(e) {
+                console.log('worker', e.data, e.data.run);
+            }
+            self.postMessage('test');
+        }
+        var worker_blob = new Blob(['('+test.toString()+')()']);  
+        var worker = new Worker(window.URL.createObjectURL(worker_blob));  
+        worker.onmessage = function(event) {  
+            console.log("Received event: " + event.data);  
+        }; 
+        class Person {
+            
+            run() {
+                console.log('run');
+            }
+        }
+        worker.postMessage(new Person());
+        </script>
     </body>
 </html>
 
