@@ -1,11 +1,11 @@
 # 快速接入
 1. 引入脚本
     ```
-    <script src="../lib/windy.js"></script>
+    <script src="../lib/weatherwind.js"></script>
     ````
 1. 初始化组件
     ```javascript
-    Windy.config({
+    WeatherWind.config({
         particle: {
             canvas: particleLayer._canvas,
             lineWidth: 1.4
@@ -31,36 +31,36 @@
     ```
     // 本示例使用 jquery 加载数据
     $.getJSON('test.json', function(data) {
-        Windy.setData(data);    // 设置数据
-        Windy.start();          // 开始运行动画
+        WeatherWind.setData(data);    // 设置数据
+        WeatherWind.start();          // 开始运行动画
     });
     ```
 1. 设置相关事件
     ```
     particleLayer.delegate({
         onDrawLayer: function onDrawLayer(info) {
-            if (Windy.isReady()) {
-                Windy.start();
+            if (WeatherWind.isReady()) {
+                WeatherWind.start();
             }
         }
     });
     window.onresize = function() {
-        if (Windy.isReady()) {
-            Windy.start();
+        if (WeatherWind.isReady()) {
+            WeatherWind.start();
         }
     }
     ```
 
 ## API
-### 1. `Windy.isReady`  
+### 1. `WeatherWind.isReady`  
     用于查看是否设置数据，只有设置数据才可以开始动画
-### 2. `Windy.config`
+### 2. `WeatherWind.config`
     配置相关参数
-### 3. `Windy.start`
+### 3. `WeatherWind.start`
     开始动画
-### 3. `Windy.stop`
+### 3. `WeatherWind.stop`
     结束动画
-### 4. `Windy.setData`
+### 4. `WeatherWind.setData`
     设置数据   
 
 ## 配置各参数说明
