@@ -10,9 +10,9 @@
             canvas: particleLayer._canvas,
             lineWidth: 1.4,
             lineColor: '#ffffff',
-            numRatio: 0.3,
+            densityRatio: 0.3,
             speedRatio: 0.5,
-            lineRatio: 0.5,
+            sizeRatio: 0.5,
         },
         mask: {
             canvas: maskLayer._canvas,
@@ -96,9 +96,9 @@ particle | 粒子各参数
 particle.canvas | 用于画粒子的 canvas
 particle.lineWidth | 粒子线粗细
 particle.lineColor | 粒子线颜色
-particle.numRatio | 粒子数量系数 (0, 1)，用于控制粒子数量，默认为 0.5
+particle.densityRatio | 粒子数量系数 (0, 1)，用于控制粒子数量，默认为 0.5
 particle.speedRatio | 粒子速度系数 (0, 1)，用于控制粒子速度，默认为 0.5
-particle.lineRatio | 粒子线长系数 (0, 1)，用于控制粒子线的长短，默认为 0.5
+particle.sizeRatio | 粒子线长系数 (0, 1)，用于控制粒子线的长短，默认为 0.5
 mask | 风场背景
 mask.canvas | 用于画风场的 canvas
 mask.colors | 颜色（目前只支持 rgba 格式）
