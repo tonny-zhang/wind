@@ -12,11 +12,97 @@
                 padding: 0;
                 margin: 0;
             }
-            #mapid { height: 100%; }
+            #mapid { 
+                height: 100%; 
+                z-index: 10;
+            }
+            #tools{
+                position: absolute;
+                left: 50%;
+                top: 100px;
+                background-color: rgba(255, 255, 255, 0.7);
+                z-index: 101;
+                padding: 10px;
+                border-radius: 5px;
+                width: 180px;
+                margin-left: -100px;
+                display: none;
+            }
+            #btn_close {
+                position: absolute;
+                right: -4px;
+                top: -8px;
+                width: 16px;
+                height: 16px;
+                background-color: #9D0300;
+                border-radius: 50%;
+                color: white;
+                line-height: 14px;
+                cursor: pointer;
+            }
+            #tools>div{
+                margin: 3px 0;
+                text-align: center;
+            }
+            #tools label{
+                color: #9D0300;
+                display: inline-block;
+                margin-right: 10px;
+            }
+            #tools input[type=range]{
+                vertical-align: -6px;
+            }
+            #btn_save{
+                margin-top: 10px;
+            }
+            #btn_setting{
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 101;
+                background: url(./img/setting.svg);
+                width: 20px;
+                height: 20px;
+                background-size: 100%;
+                cursor: pointer;
+            }
+            #btn_default,
+            #btn_save{
+                border-radius: 3px;
+                border: 1px solid #9D0300;
+                background: #9D0300;
+                color: white;
+                opacity: 0.6;
+                box-shadow: 1px 1px 3px #000;
+                cursor: pointer;
+            }
+            #btn_default{
+                margin-right: 30px;
+            }
         </style>
     </head>
     <body>
         <div id="mapid"></div>
+        <div id="btn_setting"></div>
+        <div id="tools">
+            <div id="btn_close">x</div>
+            <div>
+                <label>风速</label>
+                <input id="range_speed" type="range" min="0" max="1" step="0.05" value="0.5"/>
+            </div>
+            <div>
+                <label>密度</label>
+                <input id="range_density" type="range" min="0" max="1" step="0.05"/>
+            </div>
+            <div>
+                <label>长度</label>
+                <input id="range_size" type="range" min="0" max="1" step="0.05"/>
+            </div>
+            <div>
+                <input type="button" value="默认" id="btn_default"/>
+                <input type="button" value="保存" id="btn_save"/>
+            </div>
+        </div>
         <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
         <script src="js/L.CanvasLayer.js"></script>
         <script src="js/j.js"></script>
